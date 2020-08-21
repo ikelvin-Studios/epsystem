@@ -3,8 +3,8 @@ body {
 }
 
 .row {
-  margin: 0 auto;
-  width: 280px;
+  margin: auto;
+  width: 250px;
   clear: both;
   text-align: center;
   font-family: 'Exo';
@@ -13,23 +13,27 @@ body {
 .digit,
 .dig {
   float: left;
-  padding: 10px 30px;
-  width: 30px;
-  font-size: 2rem;
+  padding: 2px 20px;
+  margin: 3px 1px;
+  width: 80px;
+  font-size: 4rem;
   cursor: pointer;
+  /* border: .1rem solid; */
+  border-radius: 20%;
 }
 
 .sub {
-  font-size: 0.8rem;
+  font-size: 1.8rem;
   color: grey;
+  float: left;
 }
 
 .container {
   background-color: white;
-  width: 320px;
-  padding: 20px;
-  margin: 30px auto;
-  height: 420px;
+  /* width: 100%; */
+  /* padding: 20px; */
+  /* margin: 30px auto; */
+  height: 100%;
   text-align: center;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
@@ -47,7 +51,7 @@ body {
   background-color: #66bb6a;
   padding: 20px 30px;
   border-radius: 100%;
-  margin: 10px;
+  /* margin: 10px; */
   color: white;
   border-radius: 4px;
   float: left;
@@ -72,9 +76,9 @@ body {
 }
 
 .dig {
-  float: left;
+  float: right;
   padding: 10px 20px;
   margin: 10px;
-  width: 30px;
+  width: 60px;
   cursor: pointer;
 }
