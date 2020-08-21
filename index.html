@@ -12,6 +12,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="stylesheet" href="static/assets/snippets/working-dial-pad/dist/style.css">
 	<!-- VENDOR CSS -->
 	<link rel="stylesheet" href="static/assets/vendor/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="static/assets/vendor/font-awesome/css/font-awesome.min.css">
@@ -123,6 +124,55 @@
 			<div id="main-contentArea" class="">
 				<!-- Contents Start Here -->
 
+				<div class="container">
+					<center>
+				  <div id="output"></div>
+				  <div class="row">
+				    <div class="digit" id="one">1</div>
+				    <div class="digit" id="two">2
+				      <div class="sub">ABC</div>
+				    </div>
+				    <div class="digit" id="three">3
+				      <div class="sub">DEF</div>
+				    </div>
+				  </div>
+				  <div class="row">
+				    <div class="digit" id="four">4
+				      <div class="sub">GHI</div>
+				    </div>
+				    <div class="digit" id="five">5
+				      <div class="sub">JKL</div>
+				    </div>
+				    <div class="digit">6
+				      <div class="sub">MNO</div>
+				    </div>
+				  </div>
+				  <div class="row">
+				    <div class="digit">7
+				      <div class="sub">PQRS</div>
+				    </div>
+				    <div class="digit">8
+				      <div class="sub">TUV</div>
+				    </div>
+				    <div class="digit">9
+				      <div class="sub">WXYZ</div>
+				    </div>
+				  </div>
+				  <div class="row">
+				    <div class="digit">*
+				    </div>
+				    <div class="digit">0
+				    </div>
+				    <div class="digit">#
+				    </div>
+				  </div>
+				  <div class="botrow"><i class="fa fa-star-o dig" aria-hidden="true"></i>
+				    <div id="call" class=""><i class="fa fa-phone" aria-hidden="true"></i></div>
+				    <i class="fa fa-long-arrow-left dig" aria-hidden="true"></i>
+				  </div>
+								</center>
+				</div>
+
 				<!-- Contents End here -->
 			</div>
 			<!-- <button type="button" class="btn btn-default" data-toggle="modal" data-target="#About-modal">Large modal</button>
@@ -222,6 +272,7 @@
 		});
 	});
 	</script> -->
+	<script  src="static/assets/snippets/working-dial-pad/dist/script.js"></script>
 </body>
 
 </html>
