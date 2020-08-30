@@ -108,8 +108,8 @@
 				</div>
 				<nav id="left-sidebar-nav" class="sidebar-nav">
 					<ul id="main-menu" class="metismenu">
-						<li class=""><a href="./"><i class="fa fa-external-link-square"></i> <span>*170#</span></a></li>
-            <li class=""><a data-toggle="modal" data-target="#About-modal"><i class="lnr lnr-phone"></i> <span>*124#</span></a></li>
+						<li class="" onclick="dial('*170#')"><a><i class="fa fa-external-link-square text-success"></i> <span>*170#</span></a></li>
+						
 					</ul>
 				</nav>
 				<div id="Side-Assesment" style="padding: 30px; text-align: center;">
@@ -170,7 +170,7 @@
 					<div class="digit">#
 					</div>
 				</div>
-				<div id="call" class="btn btn-block ml-2 mr-2 text-lg"><i class="fa fa-phone" aria-hidden="true"></i> Dial</div>
+				<btn id="call" class="btn btn-block ml-2 mr-2 text-lg" onclick="dialInput()"><i class="fa fa-phone" aria-hidden="true"></i> Dial</btn>
 							</center>
 
 
@@ -191,6 +191,71 @@
 		<footer>
 			<p class="copyright">&copy; 2020 <a href="https://epsystem.campusinsider.net" target="_blank">EpSystem</a>. All Rights Reserved.</p>
 		</footer> -->
+		<div id="mainUSSDModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+				<div class="modal-dialog modal-sm" role="document">
+					<div class="modal-content">
+						<!-- <div class="modal-header">
+						</div> -->
+						<div class="modal-body">
+							Welcome To epsystem
+							<ol>
+								<li>Check Balance</li>
+								<li>Recharge Account</li>
+								<li>Manage Account</li>
+							</ol>
+							<!-- <center><img src="static/assets/img/welcome1.jpg" alt="welcome" class="img img-responsive img-fluid"/></center>
+							<h2>Welcome to EaseStudy. I'm here to help making studying for WASSCE as easy as possible. <span class="text-larger text-primary"> Let's get started</span> </h2>
+							<div class="margin-bottom-30"></div>
+							<div class="margin-bottom-30"></div>
+
+							<img src="static/assets/img/loader.gif" alt="ready" class="img img-responsive" style="height:15%;width:15%"/> -->
+
+							<form class="search-form help-search-form">
+								<input id="startupInput" name="studentInput" class="form-control" placeholder="How can I call You?" type="text">
+								<button type="button" class="btn btn-default"><i class="fa fa-fw fa-user"></i></button>
+								<!-- <label for="studentName">NB: Needed for Identifying you and your records. <br> Hence, personalizing your experience on EaseStudy</label> -->
+							</form>
+						</div>
+						<div class="modal-footer">
+
+							<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times-circle"></i> Cancel</button>
+							<button type="button" onclick="next()" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-check-circle"></i> Send</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		<div id="noServiceModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+				<div class="modal-dialog modal-sm" role="document">
+					<div class="modal-content">
+						<!-- <div class="modal-header">
+						</div> -->
+						<div class="modal-body">
+							Service Not Available.
+							<!-- <center><img src="static/assets/img/welcome1.jpg" alt="welcome" class="img img-responsive img-fluid"/></center> -->
+							<!-- <h4>Service Not Available. -->
+								<!-- <span class="text-larger text-primary"> Let's get started</span> -->
+							<!-- </h4> -->
+							<!-- <div class="margin-bottom-30"></div>
+							<div class="margin-bottom-30"></div> -->
+
+							<!-- <img src="static/assets/img/loader.gif" alt="ready" class="img img-responsive" style="height:15%;width:15%"/> -->
+
+							<!-- <form class="search-form help-search-form">
+								<input id="startupInput" name="studentInput" class="form-control" placeholder="How can I call You?" type="text">
+								<button type="button" class="btn btn-default"><i class="fa fa-fw fa-user"></i></button>
+								<label for="studentName">NB: Needed for Identifying you and your records. <br> Hence, personalizing your experience on EaseStudy</label>
+							</form> -->
+						</div>
+						<div class="modal-footer">
+
+							<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times-circle"></i> Okay</button>
+							<!-- <button type="button" onclick="next()" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-check-circle"></i> Next</button> -->
+						</div>
+					</div>
+				</div>
+			</div>
+
 	</div>
 	<!-- END WRAPPER -->
 
@@ -277,7 +342,9 @@
 		});
 	});
 	</script> -->
-	<script  src="static/assets/snippets/working-dial-pad/dist/script.js"></script>
+	<!-- <script  src="static/assets/snippets/working-dial-pad/dist/script.js"></script> -->
+	<script  src="includes/main.js"></script>
+
 </body>
 
 </html>
