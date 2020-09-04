@@ -34,3 +34,8 @@ function dialInput(){
   }
 
 }
+
+function sendRequest(){
+  choice = $("#choice").val();
+  
+}
