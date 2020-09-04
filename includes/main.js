@@ -16,7 +16,7 @@ $('.fa-long-arrow-left').on('click', function() {
 })
 
 function dial(target){
-  if (target == '*558#') {
+  if (target == '*961#') {
     $("#mainUSSDModal").modal("show");
   } else {
     $("#noServiceModal").modal("show");
