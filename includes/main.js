@@ -1,5 +1,8 @@
 var count = 0;
 var digits = '';
+var requestString = '';
+var currentMenu = '';
+var previousMenu = '';
 
 $(".digit").on('click', function() {
   var num = ($(this).clone().children().remove().end().text());
@@ -16,12 +19,7 @@ $('.fa-long-arrow-left').on('click', function() {
 })
 
 function dial(target){
-  if (target == '*961#') {
-    $("#mainUSSDModal").modal("show");
-  } else {
-    $("#noServiceModal").modal("show");
-  }
-
+  sendRequest(target);
 }
 
 function dialInput(){
@@ -35,7 +33,17 @@ function dialInput(){
 
 }
 
+
+function next(){
+  sendRequest(getRequest());
+
+}
+
+function getRequest(){
+  return $("#requestString").val();
+}
+
 function sendRequest(){
-  choice = $("#choice").val();
-  
+  return networkAccess(request)
+
 }
