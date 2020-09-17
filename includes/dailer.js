@@ -1,8 +1,8 @@
 var count = 0;
 var digits = '';
-var requestString = '';
-var currentMenu = '';
-var previousMenu = '';
+// var requestString = '';
+// var currentMenu = '';
+// var previousMenu = '';
 
 $(".digit").on('click', function() {
   var num = ($(this).clone().children().remove().end().text());
@@ -25,7 +25,7 @@ function dial(target){
 function dialInput(){
   // digits = $("#output").val();
   if (digits != '') {
-    alert("Digits are "+ digits);
+    // alert("Digits are "+ digits);
     dial(digits);
   } else {
     alert("There is nothing");
@@ -40,10 +40,12 @@ function next(){
 }
 
 function getRequest(){
-  return $("#requestString").val();
+  requestString = $("#requestString").val();
+  $("#requestString").val("");
+  return requestString;
 }
 
-function sendRequest(){
-  return networkAccess(request)
-
+function sendRequest(request){
+  networkAccess(request)
+  return true;
 }
