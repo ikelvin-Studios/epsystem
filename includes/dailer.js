@@ -1,8 +1,10 @@
 var count = 0;
 var digits = '';
+triggerVal = "";
 // var requestString = '';
 // var currentMenu = '';
 // var previousMenu = '';
+loadRecentDials()
 
 $(".digit").on('click', function() {
   var num = ($(this).clone().children().remove().end().text());
@@ -22,6 +24,7 @@ $('.fa-long-arrow-left').on('click', function() {
 })
 
 function dial(target){
+  addRecentDial(target)
   sendRequest(target);
 }
 
@@ -30,6 +33,8 @@ function dialInput(){
   if (digits != '') {
     // alert("Digits are "+ digits);
     dial(digits);
+    digits = "";
+    $("#output").html("");
   } else {
     alert("There is nothing");
   }
@@ -51,4 +56,24 @@ function getRequest(){
 function sendRequest(request){
   networkAccess(request)
   return true;
+}
+
+
+function trigger(){
+  if (triggerVal != "") {
+    sendRequest(triggerVal);
+  } else {
+    terminateAccess();
+
+  }
+}
+
+$('#mainUSSDModal').on("hidden.bs.modal", function() {
+  trigger();
+});
+
+function addRecentDial(target){
+  recentDials.push(target);
+  console.log("New Recent Dial: "+target);
+  updateRecentDials();
 }
