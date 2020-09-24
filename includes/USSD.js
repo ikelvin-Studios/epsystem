@@ -4,6 +4,9 @@ var requestString = '';
 var currentMenu = 'mainMenu';
 var previousMenu = '';
 var menuStep = 0;
+var flowData = [];
+flowData["amount"] = 0;
+flowData["meter_no"] = "";
 
 function checkEndpointAccess(userID){
   if (ussdCode == userID) {
@@ -18,7 +21,7 @@ function endpointAccess(userID, sampleMSISDN, userData, msgType = 1){
     USSDFlow(userData);
   } else {
     currentMenu = 'mainMenu';
-    showMenu('mainMenu');
+    subscriberAccess(ussdCode, sampleMSISDN, showMenu('mainMenu'), 1);
   }
 }
 
@@ -87,109 +90,115 @@ function showMenu(menuName, menuStep = 1){
   }
 // alert("hey: "+menuName+"; Step: "+menuStep);
 // alert("Output: "+output);
-$("#view-area").html(output);
+// $("#view-area").html(output);
+return output;
 
 }
 
 function USSDFlow(userData) {
-  // showMenu('topupMenu');
+  // subscriberAccess(ussdCode, sampleMSISDN, showMenu('topupMenu');
 
   if (currentMenu == 'mainMenu') {
     if (userData == 1) {
       currentMenu = 'topupMenu';
       menuStep = 1;
-      showMenu('topupMenu');
+      subscriberAccess(ussdCode, sampleMSISDN, showMenu('topupMenu'), 1);
     } else if (userData == 2) {
       currentMenu = 'balanceMenu';
-      showMenu('balanceMenu');
+      subscriberAccess(ussdCode, sampleMSISDN, showMenu('balanceMenu'), 1);
     } else if (userData == 3) {
       currentMenu = 'statementMenu';
-      showMenu('statementMenu');
+      subscriberAccess(ussdCode, sampleMSISDN, showMenu('statementMenu'), 1);
     } else if (userData == 4) {
       currentMenu = 'contactMenu';
-      showMenu('contactMenu');
+      subscriberAccess(ussdCode, sampleMSISDN, showMenu('contactMenu'), 1);
     } else {
-      showMenu('invalid');
+      subscriberAccess(ussdCode, sampleMSISDN, showMenu('invalid'), 1);
     }
 
   } else if (currentMenu == 'topupMenu') {
     //TODO: Do something with userData
     if (menuStep == 1) {
+      // Enter Amount of Choice
+      flowData["amount"] = userData;
+      flowData["meter_no"] = getMeterNo();
       menuStep = 2;
-      showMenu('topupMenu', 2);
+      subscriberAccess(ussdCode, sampleMSISDN, showMenu('topupMenu', 2), 1);
     } else if (menuStep == 2) {
       if (userData == 1) {
+        flowData[meter_no] = addMeterNo(userData);
         menuStep = 3;
-        showMenu('topupMenu', 3);
+        subscriberAccess(ussdCode, sampleMSISDN, showMenu('topupMenu', 3), 1);
       } else {
         // TODO: Get UserData as selection of and fetch as Meter Number
+        flowData[meter_no] = getMeterNo(userData);
         menuStep = 4;
-        showMenu('topupMenu', 4);
+        subscriberAccess(ussdCode, sampleMSISDN, showMenu('topupMenu', 4), 1);
       }
     } else if (menuStep == 3) {
       // TODO: Get UserData as Meter Number
       menuStep = 4;
-      showMenu('topupMenu', 4);
+      subscriberAccess(ussdCode, sampleMSISDN, showMenu('topupMenu', 4), 1);
     } else if (menuStep == 4) {
       if (userData == 1) {
         menuStep = 5;
-        showMenu('topupMenu', 5);
+        subscriberAccess(ussdCode, sampleMSISDN, showMenu('topupMenu', 5), 0);
       } else {
-        showMenu('abort');
+        subscriberAccess(ussdCode, sampleMSISDN, showMenu('abort'), 0);
       }
     } else if (menuStep == 5) {
       menuStep = 6;
-      showMenu('topupMenu', 6);
+      subscriberAccess(ussdCode, sampleMSISDN, showMenu('topupMenu', 6), 1);
     } else if (menuStep == 6) {
       // TODO: Take Momo Pin check if its 4 digits
       menuStep = 7;
-      showMenu('topupMenu', 7);
+      subscriberAccess(ussdCode, sampleMSISDN, showMenu('topupMenu', 7), 1);
     } else if (menuStep == 7) {
         if (userData == 1) {
           menuStep = 8;
-        showMenu('topupMenu', 8);
+        subscriberAccess(ussdCode, sampleMSISDN, showMenu('topupMenu', 8), 1);
       } else {
-        showMenu('abort');
+        subscriberAccess(ussdCode, sampleMSISDN, showMenu('abort'), 0);
       }
     } else {
-      showMenu('invalid');
+      subscriberAccess(ussdCode, sampleMSISDN, showMenu('invalid'), 1);
     }
 
   } else if (currentMenu == 'balanceMenu') {
     if (userData == 1) {
-      showMenu('topupMenu');
+      subscriberAccess(ussdCode, sampleMSISDN, showMenu('topupMenu'), 1);
     } else if (userData == 2) {
-      showMenu('topupMenu');
+      subscriberAccess(ussdCode, sampleMSISDN, showMenu('topupMenu'), 1);
     } else if (userData == 3) {
-      showMenu('topupMenu');
+      subscriberAccess(ussdCode, sampleMSISDN, showMenu('topupMenu'), 1);
     } else if (userData == 4) {
-      showMenu('topupMenu');
+      subscriberAccess(ussdCode, sampleMSISDN, showMenu('topupMenu'), 1);
     } else {
-      showMenu('invalid');
+      subscriberAccess(ussdCode, sampleMSISDN, showMenu('invalid'), 1);
     }
 
   } else if (currentMenu == 'statementMenu') {
     if (userData == 1) {
-      showMenu('topupMenu');
+      subscriberAccess(ussdCode, sampleMSISDN, showMenu('topupMenu'), 1);
     } else if (userData == 2) {
-      showMenu('topupMenu');
+      subscriberAccess(ussdCode, sampleMSISDN, showMenu('topupMenu'), 1);
     } else if (userData == 3) {
-      showMenu('topupMenu');
+      subscriberAccess(ussdCode, sampleMSISDN, showMenu('topupMenu'), 1);
     } else if (userData == 4) {
-      showMenu('topupMenu');
+      subscriberAccess(ussdCode, sampleMSISDN, showMenu('topupMenu'), 1);
     } else {
-      showMenu('invalid');
+      subscriberAccess(ussdCode, sampleMSISDN, showMenu('invalid'), 1);
     }
 
   } else if (currentMenu == 'contactMenu') {
     if (userData == 0) {
-      showMenu('mainMenu');
+      subscriberAccess(ussdCode, sampleMSISDN, showMenu('mainMenu'), 1);
     } else {
-      showMenu('invalid');
+      subscriberAccess(ussdCode, sampleMSISDN, showMenu('invalid'), 1);
     }
 
   } else {
-    showMenu('invalid');
+    subscriberAccess(ussdCode, sampleMSISDN, showMenu('invalid'), 1);
   }
   // if (currentMenu == 'mainMenu') {
   //
@@ -197,5 +206,13 @@ function USSDFlow(userData) {
   // } else {
   //
   // }
+
+}
+
+function getMeterNo(userData = ""){
+
+}
+
+function addMeterNo(userData) {
 
 }
