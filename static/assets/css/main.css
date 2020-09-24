@@ -298,8 +298,8 @@ html.fullscreen-bg #wrapper {
 
 #navbar-search {
   float: left;
-  margin-left: 20px;
-  margin-right: 20px; }
+  margin-left: 5px;
+  margin-right: 5px; }
   @media screen and (max-width: 767px) {
     #navbar-search {
       /* display: none;  */
