@@ -107,14 +107,11 @@
 					</div> -->
 				</div>
 				<nav id="left-sidebar-nav" class="sidebar-nav">
-					<ul id="main-menu" class="metismenu">
-						<li class="" onclick="dial('*170#')"><a><i class="fa fa-external-link-square text-success"></i> <span>*170#</span></a></li>
+					<ul id="main-menu" class="metismenu recentDial-list">
 
 					</ul>
 				</nav>
-				<div id="Side-Assesment" style="padding: 30px; text-align: center;">
 
-				</div>
 			</div>
 		</div>
 		<!-- END LEFT SIDEBAR -->
@@ -241,7 +238,7 @@
 
 							<img src="static/assets/img/loader.gif" alt="ready" class="img img-responsive" style="height:15%;width:15%"/> -->
 
-							<form class="search-form help-search-form">
+							<form class="search-form help-search-form flow-items">
 								<input id="requestString" name="requestString" class="form-control" placeholder="Reply" type="text">
 								<button type="button" class="btn btn-default"><i class="fa fa-fw fa-user"></i></button>
 								<!-- <label for="studentName">NB: Needed for Identifying you and your records. <br> Hence, personalizing your experience on EaseStudy</label> -->
@@ -249,8 +246,9 @@
 						</div>
 						<div class="modal-footer">
 
-							<button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times-circle"></i> Cancel</button>
-							<button type="button" onclick="next()" class="btn btn-primary"><i class="fa fa-check-circle"></i> Send</button>
+							<button type="button" class="btn btn-default flow-items" data-dismiss="modal"><i class="fa fa-times-circle"></i> Cancel</button>
+							<button type="button" onclick="next()" class="btn btn-primary flow-items"><i class="fa fa-check-circle"></i> Send</button>
+							<button type="button" onclick="trigger()" class="btn btn-default trigger-items"><i class="fa fa-times-circle"></i> Okay</button>
 						</div>
 					</div>
 				</div>
@@ -374,6 +372,7 @@
 	});
 	</script> -->
 	<!-- <script  src="static/assets/snippets/working-dial-pad/dist/script.js"></script> -->
+	<script  src="includes/utility.js"></script>
 	<script  src="includes/dailer.js"></script>
 	<script  src="includes/network.js"></script>
 	<script  src="includes/USSD.js"></script>
