@@ -126,7 +126,6 @@ function USSDFlow(userData) {
       subscriberAccess(ussdCode, sampleMSISDN, showMenu('topupMenu', 2), 1);
     } else if (menuStep == 2) {
       if (userData == 1) {
-        flowData[meter_no] = addMeterNo(userData);
         menuStep = 3;
         subscriberAccess(ussdCode, sampleMSISDN, showMenu('topupMenu', 3), 1);
       } else {
@@ -137,6 +136,7 @@ function USSDFlow(userData) {
       }
     } else if (menuStep == 3) {
       // TODO: Get UserData as Meter Number
+      // flowData[meter_no] = addMeterNo(userData);
       menuStep = 4;
       subscriberAccess(ussdCode, sampleMSISDN, showMenu('topupMenu', 4), 1);
     } else if (menuStep == 4) {
@@ -210,6 +210,7 @@ function USSDFlow(userData) {
 }
 
 function getMeterNo(userData = ""){
+
 
 }
 
