@@ -72,6 +72,8 @@ function myFunction(item, index) {
     // listItem = '<li class="" onclick="dial(\'*170#\')"><a><i class="fa fa-external-link-square text-success"></i> <span>*170#</span></a></li>';
     // $(".recentDial-list").html(listItem);
 
+  } else {
+    recentDials = [];
   }
 }
 
