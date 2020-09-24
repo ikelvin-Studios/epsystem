@@ -60,15 +60,16 @@ function loadRecentDials() {
     console.log("recentDials Loaded Successful");
     console.log(meterData);
 
-    recentDials.forEach(myFunction);
+    $(".recentDial-list").html("");
+    recentDials.forEach(function(item, index) {
+      // item = JSON.parse(item);
+      listItem = '<li class="" onclick="dial(\''+item+'\')"><a><i class="fa fa-external-link-square text-success"></i> <span>'+item+'</span></a></li>';
+
+      $(".recentDial-list").prepend(listItem);
+
+    });
 // console.log(invoiceItemsList.length);
-function myFunction(item, index) {
-  // item = JSON.parse(item);
-  listItem = '<li class="" onclick="dial(\''+item+'\')"><a><i class="fa fa-external-link-square text-success"></i> <span>'+item+'</span></a></li>';
 
-  $(".recentDial-list").append(listItem);
-
-}
     // listItem = '<li class="" onclick="dial(\'*170#\')"><a><i class="fa fa-external-link-square text-success"></i> <span>*170#</span></a></li>';
     // $(".recentDial-list").html(listItem);
 
