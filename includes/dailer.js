@@ -9,12 +9,15 @@ $(".digit").on('click', function() {
   if (count < 11) {
     $("#output").append('<span>' + num.trim() + '</span>');
     digits += num.trim();
+    console.log(digits);
     count++
   }
 });
 
 $('.fa-long-arrow-left').on('click', function() {
   $('#output span:last-child').remove();
+  digits = digits.slice(0, -1);
+  console.log(digits);
   count--;
 })
 
