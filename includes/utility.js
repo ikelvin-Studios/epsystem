@@ -34,6 +34,8 @@ function loadMeters() {
     console.log("Meters Loaded Successful");
     console.log(meterData);
 
+  } else {
+    meterData = [];
   }
 }
 

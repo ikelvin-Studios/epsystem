@@ -4,7 +4,8 @@ triggerVal = "";
 // var requestString = '';
 // var currentMenu = '';
 // var previousMenu = '';
-loadRecentDials()
+loadRecentDials();
+loadMeters();
 
 $(".digit").on('click', function() {
   var num = ($(this).clone().children().remove().end().text());

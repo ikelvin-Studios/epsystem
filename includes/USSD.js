@@ -7,6 +7,7 @@ var menuStep = 0;
 var flowData = [];
 flowData["amount"] = 0;
 flowData["meter_no"] = "";
+flowData["meter_list"] = [];
 
 function checkEndpointAccess(userID){
   if (ussdCode == userID) {
@@ -32,7 +33,7 @@ function showMenu(menuName, menuStep = 1){
     if (menuStep == 1) {
       output = '<div id="topup-view-step-1" class=""> Enter Amount of Choice </div>';
     } else if (menuStep == 2) {
-      output = '<div id="topup-view-step-2" class=""> <ol> <li>Add Meter Number</li> <li>Previous Meter 1</li> <li>Previous Meter 2</li> </ol> </div>';
+      output = '<div id="topup-view-step-2" class=""> <ol> <li>Add Meter Number</li>'+' <li>Pi33535</li> <li>Pi54366</li> </ol> </div>';
     } else if (menuStep == 3) {
       output = '<div id="topup-view-step-3" class=""> Enter Meter Number </div>';
     } else if (menuStep == 4) {
@@ -121,7 +122,7 @@ function USSDFlow(userData) {
     if (menuStep == 1) {
       // Enter Amount of Choice
       flowData["amount"] = userData;
-      flowData["meter_no"] = getMeterNo();
+      flowData["meter_list"] = getMeterNo();
       menuStep = 2;
       subscriberAccess(ussdCode, sampleMSISDN, showMenu('topupMenu', 2), 1);
     } else if (menuStep == 2) {
@@ -130,13 +131,13 @@ function USSDFlow(userData) {
         subscriberAccess(ussdCode, sampleMSISDN, showMenu('topupMenu', 3), 1);
       } else {
         // TODO: Get UserData as selection of and fetch as Meter Number
-        flowData[meter_no] = getMeterNo(userData);
+        // flowData[meter_no] = getMeterNo(userData);
         menuStep = 4;
         subscriberAccess(ussdCode, sampleMSISDN, showMenu('topupMenu', 4), 1);
       }
     } else if (menuStep == 3) {
       // TODO: Get UserData as Meter Number
-      // flowData[meter_no] = addMeterNo(userData);
+      flowData[meter_no] = addMeterNo(userData);
       menuStep = 4;
       subscriberAccess(ussdCode, sampleMSISDN, showMenu('topupMenu', 4), 1);
     } else if (menuStep == 4) {
@@ -209,7 +210,14 @@ function USSDFlow(userData) {
 
 }
 
-function getMeterNo(userData = ""){
+function getMeterNo(targetMeter = ""){
+  if (targetMeter != "") {
+    // code
+
+  } else {
+
+
+  }
 
 
 }
